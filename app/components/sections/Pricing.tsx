@@ -73,9 +73,22 @@ const ProductImage = ({ title }: { title: string }) => {
   );
 };
 
+const getBraipUrl = (title: string) => {
+  switch (title) {
+    case '1 Unidade':
+      return 'https://ev.braip.com/checkout/plaoved6/chedronw';
+    case '3 Unidades':
+      return 'https://ev.braip.com/checkout/plaz2llm/chedronw';
+    case '6 Unidades':
+      return 'https://ev.braip.com/checkout/plagywwv/chedronw';
+    default:
+      return 'https://ev.braip.com/checkout/pla2q22d/chedronw';
+  }
+};
+
 export function Pricing({ packages, onPackageClick }: PricingProps) {
   const getPackageType = (index: number) => {
-    const types = ['Frasco único', 'Leve 3 pague 2', 'Leve 6 pague 3', 'Leve 12 pague 6'];
+    const types = ['Frasco único', 'Leve 3 pague 2', 'Leve 6 pague 3', 'Leve 10 pague 5'];
     return types[index];
   };
 
@@ -83,7 +96,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
     if (title === '1 Unidade') return 30;
     if (title === '3 Unidades') return 90;
     if (title === '6 Unidades') return 180;
-    return 360;
+    return 300;
   };
 
   return (
@@ -136,7 +149,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                   </div>
 
                   <Button
-                    onClick={() => onPackageClick(pkg.title)}
+                    onClick={() => window.open(getBraipUrl(pkg.title), '_blank')}
                     className="w-full bg-green-500 hover:bg-green-600 text-lg font-semibold h-12"
                   >
                     COMPRAR AGORA
