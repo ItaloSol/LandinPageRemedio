@@ -24,7 +24,7 @@ const fadeIn = {
 
 const PackageLabel = ({ days }: { days: number }) => (
   <div className="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full text-center mb-4">
-    Suplemento para {days} dias
+    Suplemento para {days} dias 
   </div>
 );
 
@@ -34,33 +34,48 @@ const PackageType = ({ type }: { type: string }) => (
   </div>
 );
 
-const ProductImage = ({ title }: { title: string }) => (
-  <div className="relative w-64 h-64 mx-auto mb-6">
-    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-200 via-blue-200 to-green-200 animate-pulse opacity-30" />
-    <div className="relative w-full h-full rounded-full border-2 border-gray-100 overflow-hidden shadow-lg">
-      <Image
-        src="/images/remedio.png"
-        alt={title}
-        width={256}
-        height={256}
-        className="w-full h-full object-cover"
-      />
+const ProductImage = ({ title }: { title: string }) => {
+  const getImageSrc = (title: string) => {
+    switch (title) {
+      case '1 Unidade':
+        return '/images/selecionado_1.png';
+      case '3 Unidades':
+        return '/images/selecionado_3.png';
+      case '6 Unidades':
+        return '/images/6_remedios.png';
+      default:
+        return '/images/6_remedios.png';
+    }
+  };
+
+  return (
+    <div className="relative w-64 h-64 mx-auto mb-6">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-200 via-blue-200 to-green-200 animate-pulse opacity-30" />
+      <div className="relative w-full h-full rounded-full border-2 border-gray-100 overflow-hidden shadow-lg">
+        <Image
+          src={getImageSrc(title)}
+          alt={title}
+          width={256}
+          height={256}
+          className="object-contain w-full h-full p-4"
+        />
+      </div>
+      <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-gray-100">
+        <Image
+          src="/images/massageador-logo.webp"
+          alt="Massageador"
+          width={48}
+          height={48}
+          className="w-12 h-12 object-cover rounded-full"
+        />
+      </div>
     </div>
-    <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-gray-100">
-      <Image
-        src="/images/massageador-logo.webp"
-        alt="Massageador"
-        width={48}
-        height={48}
-        className="w-12 h-12 object-cover rounded-full"
-      />
-    </div>
-  </div>
-);
+  );
+};
 
 export function Pricing({ packages, onPackageClick }: PricingProps) {
   const getPackageType = (index: number) => {
-    const types = ['Frasco único', 'Pacote Triplo', 'Pacote econômico', 'Pacote Familiar'];
+    const types = ['Frasco único', 'Leve 3 pague 2', 'Leve 6 pague 3', 'Leve 12 pague 6'];
     return types[index];
   };
 
@@ -131,14 +146,14 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                     <Image
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png"
                       alt="Visa"
-                      width={40}
+                      width={30}
                       height={20}
                       className="h-6 w-auto opacity-70"
                     />
                     <Image
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
                       alt="Mastercard"
-                      width={40}
+                      width={30}
                       height={20}
                       className="h-6 w-auto opacity-70"
                     />

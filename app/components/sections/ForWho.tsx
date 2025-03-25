@@ -100,7 +100,7 @@ export function ForWho() {
             className="relative h-[600px] rounded-2xl overflow-hidden shadow-xl"
           >
             <Image
-              src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&q=80"
+              src="/images/mulher-sorri.avif"
               alt="Mulher radiante e confiante"
               fill
               className="object-cover"
