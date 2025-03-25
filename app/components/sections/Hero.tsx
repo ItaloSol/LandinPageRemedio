@@ -35,12 +35,13 @@ export function Hero({ onContactClick, socialProof }: HeroProps) {
               >
                 <span className="ml-3 text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-800 to-green-600 bg-clip-text text-transparent">
                 <Image
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Bioreino Logo"
-                width={400}
-                height={300}
+                width={200}
+                height={150}
                 className="ml-2"
-              />
+                priority
+                />
                 </span>
               </motion.div>
               <span className="inline-flex items-center rounded-full bg-green-200 px-3 py-1 text-sm font-medium text-green-900">
@@ -108,11 +109,12 @@ export function Hero({ onContactClick, socialProof }: HeroProps) {
           >
             <div className="aspect-w-4 aspect-h-3">
               <Image
-                src="/images/remedio.png"
+                src="/images/remedio.webp"
                 alt="Bioreino Product"
-                width={800}
-                height={600}
+                width={600}
+                height={450}
                 className="rounded-lg object-cover shadow-xl"
+                priority
               />
             </div>
             <div className="absolute -bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 sm:p-4 shadow-lg">

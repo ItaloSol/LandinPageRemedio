@@ -55,11 +55,12 @@ export function BonusSection({ onContactClick }: BonusSectionProps) {
               </div>
               <div className="relative">
                 <Image
-                  src="/images/massageador.jpeg"
+                  src="/images/massageador.webp"
                   alt="Massageador Portátil"
-                  width={500}
-                  height={400}
+                  width={400}
+                  height={320}
                   className="rounded-lg shadow-xl"
+                  loading="lazy"
                 />
                 <div className="absolute -top-4 -right-4 bg-red-700 text-white rounded-full px-4 py-2 font-bold transform rotate-12">
                   GRÁTIS

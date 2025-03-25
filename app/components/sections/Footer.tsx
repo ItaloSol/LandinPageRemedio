@@ -10,14 +10,14 @@ export function Footer() {
         <div className="flex justify-center space-x-6 md:order-2">
           <div className="flex items-center space-x-4">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.webp"
               alt="Visa"
               width={40}
               height={20}
               className="h-8 w-auto"
             />
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.webp"
               alt="Mastercard"
               width={40}
               height={20}

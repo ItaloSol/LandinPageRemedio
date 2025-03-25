@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Bioreino é um composto de 23 vitaminas e minerais essenciais para a saúde da mulher.',
   metadataBase: new URL('https://bioreinooficial.com.br'),
   icons: {
-    icon: '/icon.png',
+    icon: '/icon.webp',
   },
 };
 

@@ -45,13 +45,13 @@ const ProductImage = ({ title }: { title: string }) => {
   const getImageSrc = (title: string) => {
     switch (title) {
       case '1 Unidade':
-        return '/images/selecionado_1.png';
+        return '/images/selecionado_1.webp';
       case '3 Unidades':
-        return '/images/Selecionado_3.png';
+        return '/images/Selecionado_3.webp';
       case '6 Unidades':
-        return '/images/6_remedios.png';
+        return '/images/6_remedios.webp';
       default:
-        return '/images/selecionado_10.png';
+        return '/images/selecionado_10.webp';
     }
   };
 
@@ -62,18 +62,20 @@ const ProductImage = ({ title }: { title: string }) => {
         <Image
           src={getImageSrc(title)}
           alt={title}
-          width={256}
-          height={256}
+          width={200}
+          height={200}
           className="object-contain w-full h-full p-4"
+          loading="lazy"
         />
       </div>
       <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-gray-100">
         <Image
-          src="/images/massageador-logo.jpeg"
+          src="/images/massageador-logo.webp"
           alt="Massageador"
-          width={48}
-          height={48}
+          width={32}
+          height={32}
           className="w-12 h-12 object-cover rounded-full"
+          loading="lazy"
         />
       </div>
     </div>
@@ -205,14 +207,14 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
 
                   <div className="flex justify-center gap-4 mt-4">
                     <Image
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.webp"
                       alt="Visa"
                       width={30}
                       height={20}
                       className="h-6 w-auto opacity-70"
                     />
                     <Image
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.webp"
                       alt="Mastercard"
                       width={30}
                       height={20}
