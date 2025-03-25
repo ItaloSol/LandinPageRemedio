@@ -102,7 +102,8 @@ export function ForWho() {
             <Image
               src="/images/mulher-sorri.webp"
               alt="Mulher radiante e confiante"
-              fill
+              width={600}
+              height={800}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority

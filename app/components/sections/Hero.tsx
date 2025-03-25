@@ -37,8 +37,8 @@ export function Hero({ onContactClick, socialProof }: HeroProps) {
                 <Image
                 src="/images/logo.webp"
                 alt="Bioreino Logo"
-                width={200}
-                height={150}
+                width={120}
+                height={90}
                 className="ml-2"
                 priority
                 />
@@ -111,8 +111,8 @@ export function Hero({ onContactClick, socialProof }: HeroProps) {
               <Image
                 src="/images/remedio.webp"
                 alt="Bioreino Product"
-                width={600}
-                height={450}
+                width={500}
+                height={375}
                 className="rounded-lg object-cover shadow-xl"
                 priority
               />

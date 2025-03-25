@@ -81,7 +81,8 @@ export function InspirationGallery() {
                 <Image
                   src={item.image}
                   alt={item.alt}
-                  fill
+                  width={400}
+                  height={500}
                   className="object-cover transition-transform hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading={index < 2 ? "eager" : "lazy"}
