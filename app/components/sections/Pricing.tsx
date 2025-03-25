@@ -40,7 +40,7 @@ const ProductImage = ({ title }: { title: string }) => {
       case '1 Unidade':
         return '/images/selecionado_1.png';
       case '3 Unidades':
-        return '/images/selecionado_3.png';
+        return '/images/Selecionado_3.png';
       case '6 Unidades':
         return '/images/6_remedios.png';
       default:
