@@ -92,7 +92,7 @@ export const packages: Package[] = [
     popular: false,
     savings: 182.10,
     bonus: ['Guia de Nutrição Essencial'],
-    hasMassager: false
+    hasMassager: true
   },
   {
     title: '3 Unidades',
@@ -102,7 +102,7 @@ export const packages: Package[] = [
     originalPrice: 996.00,
     installments: 27.77,
     pix: 256.41,
-    popular: true,
+    popular: false,
     savings: 596.77,
     bonus: [
       'Guia de Nutrição Essencial',
@@ -139,7 +139,7 @@ export const packages: Package[] = [
     originalPrice: 3320.00,
     installments: 51.43,
     pix: 474.91,
-    popular: false,
+    popular: true,
     savings: 2324.10,
     bonus: [
       'Guia de Nutrição Essencial',

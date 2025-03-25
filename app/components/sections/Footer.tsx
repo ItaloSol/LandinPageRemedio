@@ -30,6 +30,8 @@ export function Footer() {
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-400">
             &copy; 2024 Bioreino. Todos os direitos reservados.
+            <br />
+            CNPJ: 59.072.084/0001-11
           </p>
         </div>
       </div>

@@ -6,8 +6,15 @@ import { Card } from '@/components/ui/card';
 import { Check, Gift } from 'lucide-react';
 interface Package {
   title: string;
+  subtitle: string;
+  discount: string;
+  price: number;
   originalPrice: number;
   installments: number;
+  pix: number;
+  popular: boolean;
+  savings: number;
+  bonus: string[];
   hasMassager: boolean;
 }
 import Image from 'next/image';
@@ -44,7 +51,7 @@ const ProductImage = ({ title }: { title: string }) => {
       case '6 Unidades':
         return '/images/6_remedios.png';
       default:
-        return '/images/6_remedios.png';
+        return '/images/selecionado_10.png';
     }
   };
 
@@ -102,7 +109,10 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
+        <motion.div
+          className="mx-auto grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4"
+          variants={fadeIn}
+        >
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.title}
@@ -110,50 +120,78 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.05 }}
             >
-              <Card className={`relative overflow-hidden ${
-                index === 0 ? 'bg-blue-50/30' :
-                index === 1 ? 'bg-green-50/30' :
-                index === 2 ? 'bg-yellow-50/30' :
-                'bg-orange-50/30'
-              } border-2 border-transparent hover:border-green-500 transition-all duration-300`}>
-                <div className="absolute top-0 left-0 right-0 h-32 rounded-t-lg bg-gradient-to-b from-white/50 to-transparent" />
-                
+              <Card className={`relative flex flex-col ${pkg.popular ? 'border-green-500 ring-2 ring-green-500' : ''}`}>
+                {pkg.popular && (
+                  <motion.div
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-green-500 px-4 py-1 text-sm font-semibold text-white"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    Mais Popular
+                  </motion.div>
+                )}
                 <div className="p-6 relative">
-                <ProductImage title={pkg.title} />
-                  <PackageType type={getPackageType(index)} />
+                  <ProductImage title={pkg.title} />
+                  <div className="flex justify-between items-center">
+                    <PackageType type={getPackageType(index)} />
+                    <span className="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">
+                      -{pkg.discount}
+                    </span>
+                  </div>
                   <PackageLabel days={getDays(pkg.title)} />
-                 
 
                   {pkg.hasMassager && (
-                    <div className="text-center mb-4">
+                    <motion.div
+                      className="text-center mb-4"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
                       <span className="inline-flex items-center gap-2 text-red-600 font-semibold">
                         <Gift className="h-5 w-5" />
-                        Massageador Exclusivo
+                        + Massageador GRÁTIS
                       </span>
-                    </div>
+                    </motion.div>
                   )}
 
-                  <div className="text-center mb-6">
-                    <div className="flex items-center justify-center gap-2">
-                      <span className="text-gray-500 line-through text-sm">De R$ {pkg.originalPrice.toFixed(2)}</span>
-                      <span className="text-red-600 font-bold">por</span>
-                    </div>
-                    <div className="text-xl font-bold text-gray-900">
+                  <div className="mt-4">
+                    <div className="flex items-baseline justify-center">
+                      <span className="text-3xl font-bold tracking-tight text-gray-900">
                       12x de R$ {pkg.installments.toFixed(2)}
+                      </span>
                     </div>
-                    <div className="text-sm text-green-600 font-medium mt-2">
-                      5% de desconto no PIX
-                    </div>
+                    <p className="text-center mt-1 text-sm text-gray-500 line-through">
+                      De R$ {pkg.originalPrice.toFixed(2)}
+                    </p>
+                    <p className="text-center mt-2 text-sm text-green-600 font-medium">
+                      Economia de R$ {pkg.savings.toFixed(2)}
+                    </p>
                   </div>
 
-                  <Button
-                    onClick={() => window.open(getBraipUrl(pkg.title), '_blank')}
-                    className="w-full bg-green-500 hover:bg-green-600 text-lg font-semibold h-12"
+                  <div className="mt-4 text-center">
+                    <p className="text-sm text-gray-500">
+                      12x de R$ {pkg.installments.toFixed(2)}
+                    </p>
+                    <p className="text-sm font-medium text-green-600">
+                      À vista no PIX: R$ {pkg.pix.toFixed(2)}
+                    </p>
+                  </div>
+
+                  
+
+                  <motion.div
+                    className="mt-6"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    COMPRAR AGORA
-                  </Button>
+                    <Button
+                      onClick={() => window.open(getBraipUrl(pkg.title), '_blank')}
+                      className="w-full bg-green-500 hover:bg-green-600 text-lg font-semibold h-12"
+                    >
+                      COMPRAR AGORA
+                    </Button>
+                  </motion.div>
 
                   <div className="flex justify-center gap-4 mt-4">
                     <Image
@@ -175,7 +213,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
