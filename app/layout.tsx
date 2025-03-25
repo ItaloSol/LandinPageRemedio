@@ -8,7 +8,25 @@ export const metadata: Metadata = {
   title: 'Bioreino - Saúde e Bem-estar para Mulheres',
   description: 'Bioreino é um composto de 23 vitaminas e minerais essenciais para a saúde da mulher.',
   icons: {
-    icon: '/app/favicon.ico', // or '/favicon.ico'
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: 'Bioreino - Saúde e Bem-estar para Mulheres',
+    description: 'Bioreino é um composto de 23 vitaminas e minerais essenciais para a saúde da mulher.',
+    images: [{
+      url: '/images/bioreino.jpg',
+      width: 800,
+      height: 600,
+      alt: 'Bioreino Product'
+    }],
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bioreino - Saúde e Bem-estar para Mulheres',
+    description: 'Bioreino é um composto de 23 vitaminas e minerais essenciais para a saúde da mulher.',
+    images: ['/images/bioreino.jpg'],
   },
 };
 
