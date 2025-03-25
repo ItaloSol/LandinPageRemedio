@@ -17,6 +17,7 @@ import { FAQ } from './sections/FAQ';
 import { FinalCTA } from './sections/FinalCTA';
 import { Footer } from './sections/Footer';
 import { BonusSection } from './sections/BonusSection';
+import { SecurityAssurance } from './sections/SecurityAssurance';
 import { benefits, packages, testimonials, socialProof } from '../data/content';
 
 const getWhatsAppMessage = (source: string, packageInfo?: any) => {
@@ -113,6 +114,7 @@ export default function LandingPage() {
       <Testimonials testimonials={testimonials} />
       <Guarantee />
       <BonusSection onContactClick={handleWhatsAppClick} />
+      <SecurityAssurance />
       <Pricing packages={packages} onPackageClick={handlePackageClick} />
       <FAQ />
       <FinalCTA onContactClick={handleWhatsAppClick} customers={socialProof.customers} />

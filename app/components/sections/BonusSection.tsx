@@ -18,7 +18,7 @@ export function BonusSection({ onContactClick }: BonusSectionProps) {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="inline-block bg-red-100 rounded-full px-4 py-1 text-sm font-medium text-red-800 mb-6"
+            className="inline-block bg-red-200 rounded-full px-4 py-1 text-sm font-medium text-red-900 mb-6"
           >
             ⏳ Promoção por Tempo Limitado
           </motion.div>
@@ -29,20 +29,20 @@ export function BonusSection({ onContactClick }: BonusSectionProps) {
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Check className="mr-2 h-5 w-5 text-green-600 mt-1" />
-                    <span>10 velocidades ajustáveis para diferentes necessidades</span>
+                    <Check className="mr-2 h-5 w-5 text-green-800 mt-1" />
+                    <span className="text-gray-700">10 velocidades ajustáveis para diferentes necessidades</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-2 h-5 w-5 text-green-600 mt-1" />
-                    <span>Alivia dores no pescoço, costas, cintura, nádegas e pernas</span>
+                    <Check className="mr-2 h-5 w-5 text-green-800 mt-1" />
+                    <span className="text-gray-700">Alivia dores no pescoço, costas, cintura, nádegas e pernas</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-2 h-5 w-5 text-green-600 mt-1" />
-                    <span>Design portátil e ergonômico</span>
+                    <Check className="mr-2 h-5 w-5 text-green-800 mt-1" />
+                    <span className="text-gray-700">Design portátil e ergonômico</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-2 h-5 w-5 text-green-600 mt-1" />
-                    <span>Fácil de usar e transportar</span>
+                    <Check className="mr-2 h-5 w-5 text-green-800 mt-1" />
+                    <span className="text-gray-700">Fácil de usar e transportar</span>
                   </li>
                 </ul>
                 <motion.div
@@ -55,13 +55,13 @@ export function BonusSection({ onContactClick }: BonusSectionProps) {
               </div>
               <div className="relative">
                 <Image
-                  src="/images/massageador.webp"
+                  src="/images/massageador.jpeg"
                   alt="Massageador Portátil"
                   width={500}
                   height={400}
                   className="rounded-lg shadow-xl"
                 />
-                <div className="absolute -top-4 -right-4 bg-red-500 text-white rounded-full px-4 py-2 font-bold transform rotate-12">
+                <div className="absolute -top-4 -right-4 bg-red-700 text-white rounded-full px-4 py-2 font-bold transform rotate-12">
                   GRÁTIS
                 </div>
               </div>
@@ -74,7 +74,7 @@ export function BonusSection({ onContactClick }: BonusSectionProps) {
             <Button
               size="lg"
               onClick={() => onContactClick('bonus_section')}
-              className="bg-green-500 text-lg hover:bg-green-600"
+              className="bg-green-700 text-lg hover:bg-green-800 text-white"
             >
               Aproveitar Oferta Especial
             </Button>

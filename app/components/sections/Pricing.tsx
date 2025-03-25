@@ -30,13 +30,13 @@ const fadeIn = {
 };
 
 const PackageLabel = ({ days }: { days: number }) => (
-  <div className="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full text-center mb-4">
+  <div className="bg-red-700 text-white text-sm font-medium px-4 py-1 rounded-full text-center mb-4">
     Suplemento para {days} dias 
   </div>
 );
 
 const PackageType = ({ type }: { type: string }) => (
-  <div className="text-lg font-semibold text-center mb-2 bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text">
+  <div className="text-lg font-semibold text-center mb-2 text-green-800">
     {type}
   </div>
 );
@@ -69,7 +69,7 @@ const ProductImage = ({ title }: { title: string }) => {
       </div>
       <div className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-gray-100">
         <Image
-          src="/images/massageador-logo.webp"
+          src="/images/massageador-logo.jpeg"
           alt="Massageador"
           width={48}
           height={48}
@@ -110,6 +110,20 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
     <div className="bg-gradient-to-b from-gray-50 to-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
+          className="mx-auto text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-2 bg-green-200 text-green-900 px-4 py-2 rounded-full text-sm font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+              <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
+            </svg>
+            FRETE GRÁTIS PARA TODO BRASIL
+          </div>
+        </motion.div>
+        <motion.div
           className="mx-auto grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4"
           variants={fadeIn}
         >
@@ -122,10 +136,10 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              <Card className={`relative flex flex-col ${pkg.popular ? 'border-green-500 ring-2 ring-green-500' : ''}`}>
+              <Card className={`relative flex flex-col ${pkg.popular ? 'border-green-700 ring-2 ring-green-700' : ''}`}>
                 {pkg.popular && (
                   <motion.div
-                    className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-green-500 px-4 py-1 text-sm font-semibold text-white"
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-green-700 px-4 py-1 text-sm font-semibold text-white"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
@@ -136,7 +150,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                   <ProductImage title={pkg.title} />
                   <div className="flex justify-between items-center">
                     <PackageType type={getPackageType(index)} />
-                    <span className="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800">
+                    <span className="inline-flex items-center rounded-full bg-red-200 px-2.5 py-0.5 text-sm font-medium text-red-900">
                       -{pkg.discount}
                     </span>
                   </div>
@@ -148,7 +162,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <span className="inline-flex items-center gap-2 text-red-600 font-semibold">
+                      <span className="inline-flex items-center gap-2 text-red-800 font-semibold">
                         <Gift className="h-5 w-5" />
                         + Massageador GRÁTIS
                       </span>
@@ -161,24 +175,20 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                       12x de R$ {pkg.installments.toFixed(2)}
                       </span>
                     </div>
-                    <p className="text-center mt-1 text-sm text-gray-500 line-through">
+                    <p className="text-center mt-1 text-sm text-gray-700 line-through">
                       De R$ {pkg.originalPrice.toFixed(2)}
                     </p>
-                    <p className="text-center mt-2 text-sm text-green-600 font-medium">
+                    <p className="text-center mt-2 text-sm text-green-800 font-medium">
                       Economia de R$ {pkg.savings.toFixed(2)}
                     </p>
                   </div>
 
                   <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-500">
-                      12x de R$ {pkg.installments.toFixed(2)}
-                    </p>
-                    <p className="text-sm font-medium text-green-600">
+                    
+                    <p className="text-sm font-medium text-green-800">
                       À vista no PIX: R$ {pkg.pix.toFixed(2)}
                     </p>
                   </div>
-
-                  
 
                   <motion.div
                     className="mt-6"
@@ -187,7 +197,7 @@ export function Pricing({ packages, onPackageClick }: PricingProps) {
                   >
                     <Button
                       onClick={() => window.open(getBraipUrl(pkg.title), '_blank')}
-                      className="w-full bg-green-500 hover:bg-green-600 text-lg font-semibold h-12"
+                      className="w-full bg-green-700 hover:bg-green-800 text-lg font-semibold h-12 text-white"
                     >
                       COMPRAR AGORA
                     </Button>

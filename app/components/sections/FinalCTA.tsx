@@ -41,7 +41,7 @@ export function FinalCTA({ onContactClick, customers }: FinalCTAProps) {
           </Button>
         </motion.div>
         <p className="mt-6 text-sm text-green-100">
-          🔒 Compra 100% Segura | ✨ Satisfação Garantida | 🚚 Entrega Expressa
+          🔒 Compra 100% Segura | ✨ Satisfação Garantida | 🚚 Entrega Grátis
         </p>
       </motion.div>
     </div>

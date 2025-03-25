@@ -5,22 +5,22 @@ import Image from 'next/image';
 
 const galleryItems = [
   {
-    image: "/images/mulher-natural.avif",
+    image: "/images/mulher-natural.jpeg",
     caption: "Energia renovada e disposição para aproveitar cada momento",
     alt: "Mulher sorridente praticando yoga"
   },
   {
-    image: "/images/mulher-sorri.avif",
+    image: "/images/mulher-sorri.jpeg",
     caption: "Confiança e bem-estar em todas as ocasiões",
     alt: "Mulher feliz e confiante sorrindo"
   },
   {
-    image: "/images/mulher.webp",
+    image: "/images/mulher.jpeg",
     caption: "Vitalidade e alegria no dia a dia",
     alt: "Mulher radiante fazendo exercícios"
   },
   {
-    image: "/images/mulher-sauda.avif",
+    image: "/images/mulher-sauda.jpeg",
     caption: "Saúde e felicidade em harmonia",
     alt: "Mulher sorridente em momento de bem-estar"
   },
