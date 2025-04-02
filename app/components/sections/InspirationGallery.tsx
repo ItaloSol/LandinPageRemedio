@@ -15,7 +15,7 @@ const galleryItems = [
     alt: "Mulher feliz e confiante sorrindo"
   },
   {
-    image: "/images/vitalidade.webp",
+    image: "/images/Vitalidade.webp",
     caption: "Vitalidade e alegria no dia a dia",
     alt: "Mulher radiante fazendo exercícios"
   },
