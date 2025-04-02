@@ -22,6 +22,15 @@ const fadeIn = {
 };
 
 export function Testimonials({ testimonials }: TestimonialsProps) {
+  const youtubeShorts = [
+    "https://www.youtube.com/shorts/vKRMPN_T2S4",
+    "https://www.youtube.com/shorts/dG2F8D89clo",
+    "https://www.youtube.com/shorts/BNy6u-sM-pI",
+    "https://www.youtube.com/shorts/VRmDXtn0bRA",
+    "https://www.youtube.com/shorts/fEjKWSqQ8Lg",
+    "https://www.youtube.com/shorts/5UaBvdoEWeE"
+  ];
+
   return (
     <div className="bg-gray-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -32,6 +41,23 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Descubra como o Bioreino está transformando a vida de milhares de mulheres em todo o Brasil.
           </p>
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-center mb-8">Depoimentos em Vídeo</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {youtubeShorts.map((video, index) => (
+              <div key={index} className="aspect-[9/16] w-full rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src={`${video.replace('shorts/', 'embed/')}`}
+                  title={`YouTube video ${index + 1}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (

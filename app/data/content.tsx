@@ -155,12 +155,12 @@ export const packages: Package[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Maria Silva",
-    age: "52 anos",
-    location: "São Paulo, SP",
-    text: "Em apenas 2 semanas usando Bioreino, minha disposição mudou completamente! Acordo com mais energia e as dores nas articulações diminuíram muito.",
+    name: "Shirley Kelly",
+    age: "39 anos",
+    location: "Belo Horizonte, MG",
+    text: "Após começar a usar o Bioreino, tenho mais energia, praticidade, e economia, além de bem estar e mais disposição para o dia a dia, me sinto plena, tenho harmonia e vitalidade de sobra, indico.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+    image: "/images/Depoimento.webp"
   },
   {
     name: "Ana Paula Costa",

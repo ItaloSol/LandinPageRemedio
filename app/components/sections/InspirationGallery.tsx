@@ -25,7 +25,7 @@ const galleryItems = [
     alt: "Mulher sorridente em momento de bem-estar"
   },
   {
-    image: "/images/mulher-sorri.webp",
+    image: "/images/Depoimento.webp",
     caption: "Transformação e autoestima elevada",
     alt: "Mulher feliz após exercício"
   },

@@ -100,7 +100,7 @@ export function ForWho() {
             className="relative h-[600px] rounded-2xl overflow-hidden shadow-xl"
           >
             <Image
-              src="/images/principal.webp"
+              src="/images/Principal.webp"
               alt="Mulher radiante e confiante"
               width={600}
               height={800}
