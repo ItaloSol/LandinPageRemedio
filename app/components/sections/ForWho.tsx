@@ -97,15 +97,15 @@ export function ForWho() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-2xl overflow-hidden shadow-xl"
+            className="relative  rounded-2xl overflow-hidden shadow-xl"
           >
             <Image
               src="/images/Principal.webp"
               alt="Mulher radiante e confiante"
               width={600}
               height={800}
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover w-full h-auto"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
