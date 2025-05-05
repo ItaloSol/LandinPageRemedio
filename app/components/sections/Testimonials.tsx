@@ -21,15 +21,25 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 }
 };
 
+import { useState } from 'react';
+
 export function Testimonials({ testimonials }: TestimonialsProps) {
+  const [loadedVideos, setLoadedVideos] = useState<number[]>([]);
+  const [showAllVideos, setShowAllVideos] = useState(false);
   const youtubeShorts = [
-    "https://www.youtube.com/shorts/vKRMPN_T2S4",
-    "https://www.youtube.com/shorts/dG2F8D89clo",
-    "https://www.youtube.com/shorts/BNy6u-sM-pI",
-    "https://www.youtube.com/shorts/VRmDXtn0bRA",
-    "https://www.youtube.com/shorts/fEjKWSqQ8Lg",
-    "https://www.youtube.com/shorts/5UaBvdoEWeE"
+    { url: "https://www.youtube.com/shorts/vKRMPN_T2S4", id: "vKRMPN_T2S4" },
+    { url: "https://www.youtube.com/shorts/dG2F8D89clo", id: "dG2F8D89clo" },
+    { url: "https://www.youtube.com/shorts/BNy6u-sM-pI", id: "BNy6u-sM-pI" },
+    { url: "https://www.youtube.com/shorts/VRmDXtn0bRA", id: "VRmDXtn0bRA" },
+    { url: "https://www.youtube.com/shorts/fEjKWSqQ8Lg", id: "fEjKWSqQ8Lg" },
+    { url: "https://www.youtube.com/shorts/5UaBvdoEWeE", id: "5UaBvdoEWeE" }
   ];
+
+  const visibleVideos = showAllVideos ? youtubeShorts : youtubeShorts.slice(0, 3);
+  
+  const loadVideo = (index: number) => {
+    setLoadedVideos(prev => [...prev, index]);
+  };
 
   return (
     <div className="bg-gray-50 py-24 sm:py-32">
@@ -45,19 +55,50 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
 
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-center mb-8">Depoimentos em Vídeo</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {youtubeShorts.map((video, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {visibleVideos.map((video, index) => (
               <div key={index} className="aspect-[9/16] w-full rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  src={`${video.replace('shorts/', 'embed/')}`}
-                  title={`YouTube video ${index + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+                {loadedVideos.includes(index) ? (
+                  <iframe
+                    src={`${video.url.replace('shorts/', 'embed/')}`}
+                    title={`YouTube video ${index + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                ) : (
+                  <div 
+                    className="w-full h-full bg-gray-200 flex flex-col items-center justify-center cursor-pointer relative"
+                    onClick={() => loadVideo(index)}
+                  >
+                    <Image
+                      src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                      alt="Thumbnail do vídeo"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center">
+                        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
+          {!showAllVideos && youtubeShorts.length > 3 && (
+            <div className="mt-8 text-center">
+              <button 
+                onClick={() => setShowAllVideos(true)}
+                className="px-6 py-3 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-colors"
+              >
+                Ver Mais Depoimentos
+              </button>
+            </div>
+          )}
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
